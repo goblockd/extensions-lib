@@ -50,12 +50,12 @@ tapmoc {
 }
 
 mavenPublishing {
-    coordinates("com.github.mihonapp", "tachiyomix", "1.6.0-SNAPSHOT")
+    coordinates("com.github.keiyoushi", "extensions-lib", "1.6")
 
     pom {
-        name.set("TachiyomiX")
-        description.set("Tachiyomi based extension API for Mihon")
-        url.set("https://github.com/mihonapp/tachiyomix")
+        name.set("extensions-lib")
+        description.set("Stubs used for extensions in Tachiyomi and Mihon 0.x.")
+        url.set("https://github.com/keiyoushi/extensions-lib")
 
         licenses {
             license {
@@ -66,13 +66,14 @@ mavenPublishing {
         }
 
         organization {
-            name.set("Mihon Open Source Project")
-            url.set("https://github.com/mihon")
+            name.set("Keiyoushi")
+            url.set("https://github.com/keiyoushi")
         }
 
         scm {
-            connection.set("scm:git:git://github.com/mihonapp/tachiyomix.git")
-            url.set("https://github.com/mihonapp/tachiyomix")
+            connection.set("scm:git:git://github.com/keiyoushi/extensions-lib.git")
+            url.set("https://github.com/keiyoushi/extensions-lib")
         }
     }
 }
+
