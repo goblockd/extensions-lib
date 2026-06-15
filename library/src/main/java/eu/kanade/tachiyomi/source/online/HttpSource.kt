@@ -51,7 +51,7 @@ abstract class HttpSource : CatalogueSource {
     /**
      * Headers builder for requests. Implementations can override this method for custom headers.
      */
-    protected open fun headersBuilder(): Headers.Builder {
+    open protected fun headersBuilder(): Headers.Builder {
         throw Exception("Stub!")
     }
 
@@ -165,46 +165,6 @@ abstract class HttpSource : CatalogueSource {
     protected abstract fun mangaDetailsParse(response: Response): SManga
 
     /**
-     * Whether parsing related mangas in manga page or extension provide custom related mangas request.
-     * Only Supported on Komikku
-     *
-     * @default true
-     */
-    override val supportsRelatedMangas: Boolean get() = true
-
-    /**
-     * Fetch related mangas for a manga from source/site.
-     * Normally it's not needed to override this method.
-     * Only Supported on Komikku
-     *
-     * @param manga the current manga to get related mangas.
-     * @return the related mangas for the current manga.
-     * @throws UnsupportedOperationException if a source doesn't support related mangas.
-     */
-    override suspend fun fetchRelatedMangaList(manga: SManga): List<SManga> {
-        throw Exception("Stub!")
-    }
-
-    /**
-     * Returns the request for get related manga list. Override only if it's needed to override
-     * the url, send different headers or request method like POST.
-     * Only Supported on Komikku
-     *
-     * @param manga the manga to look for related mangas.
-     */
-    protected open fun relatedMangaListRequest(manga: SManga): Request {
-        throw Exception("Stub!")
-    }
-
-    /**
-     * Parses the response from the site and returns a list of related mangas.
-     * Only Supported on Komikku
-     *
-     * @param response the response from the site.
-     */
-    protected open fun relatedMangaListParse(response: Response): List<SManga> = throw Exception("Stub!")
-
-    /**
      * Returns an observable with the updated chapter list for a manga. Normally it's not needed to
      * override this method.
      *
@@ -220,7 +180,7 @@ abstract class HttpSource : CatalogueSource {
      *
      * @param manga the manga to look for chapters.
      */
-    protected open fun chapterListRequest(manga: SManga): Request {
+    open protected fun chapterListRequest(manga: SManga): Request {
         throw Exception("Stub!")
     }
 
@@ -246,7 +206,7 @@ abstract class HttpSource : CatalogueSource {
      *
      * @param chapter the chapter whose page list has to be fetched.
      */
-    protected open fun pageListRequest(chapter: SChapter): Request {
+    open protected fun pageListRequest(chapter: SChapter): Request {
         throw Exception("Stub!")
     }
 
@@ -273,7 +233,7 @@ abstract class HttpSource : CatalogueSource {
      *
      * @param page the chapter whose page list has to be fetched
      */
-    protected open fun imageUrlRequest(page: Page): Request {
+    open protected fun imageUrlRequest(page: Page): Request {
         throw Exception("Stub!")
     }
 
@@ -299,7 +259,7 @@ abstract class HttpSource : CatalogueSource {
      *
      * @param page the chapter whose page list has to be fetched
      */
-    protected open fun imageRequest(page: Page): Request {
+    open protected fun imageRequest(page: Page): Request {
         throw Exception("Stub!")
     }
 
@@ -331,7 +291,7 @@ abstract class HttpSource : CatalogueSource {
     private fun getUrlWithoutDomain(orig: String): String {
         throw Exception("Stub!")
     }
-
+    
     /**
      * Returns the url of the provided manga
      *
