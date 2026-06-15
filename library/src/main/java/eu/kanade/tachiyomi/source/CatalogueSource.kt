@@ -56,4 +56,36 @@ interface CatalogueSource : Source {
      */
     @Deprecated("Use the suspend API instead", ReplaceWith("getLatestUpdates"))
     fun fetchLatestUpdates(page: Int): Observable<MangasPage> = throw Exception("Stub!")
+
+    /**
+     * Whether parsing related mangas in manga page or extension provide custom related mangas request.
+     * Only Supported on Komikku
+     * @default false
+     */
+    val supportsRelatedMangas: Boolean get() = false
+
+    /**
+     * Extensions doesn't want to use App's [getRelatedMangaListBySearch].
+     * Only Supported on Komikku
+     * @default false
+     */
+    val disableRelatedMangasBySearch: Boolean get() = false
+
+    /**
+     * Disable showing any related titles.
+     * Only Supported on Komikku
+     * @default false
+     */
+    val disableRelatedMangas: Boolean get() = false
+
+    /**
+     * Fetch related mangas for a manga from source/site.
+     * Only Supported on Komikku
+     *
+     * @param manga the current manga to get related mangas.
+     * @return the related mangas for the current manga.
+     * @throws UnsupportedOperationException if a source doesn't support related mangas.
+     */
+    suspend fun fetchRelatedMangaList(manga: SManga): List<SManga> = throw UnsupportedOperationException("Unsupported!")
 }
+
