@@ -231,6 +231,10 @@ abstract class HttpSource : CatalogueSource {
      *
      * @param manga the manga to look for related mangas.
      */
+    @Deprecated(
+        message = "The helper functions are inherently limiting and hides the underlying implementation. " +
+            "Source developers should make their own implementation according to their needs.",
+    )
     protected open fun relatedMangaListRequest(manga: SManga): Request {
         throw Exception("Stub!")
     }
@@ -241,7 +245,12 @@ abstract class HttpSource : CatalogueSource {
      *
      * @param response the response from the site.
      */
+    @Deprecated(
+        message = "The helper functions are inherently limiting and hides the underlying implementation. " +
+            "Source developers should make their own implementation according to their needs.",
+    )
     protected open fun relatedMangaListParse(response: Response): List<SManga> = throw Exception("Stub!")
+
 
 
     /**
