@@ -1,4 +1,7 @@
+import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
+
 plugins {
+    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.android.library)
     alias(libs.plugins.maven.publish)
     alias(libs.plugins.tapmoc)
@@ -7,18 +10,22 @@ plugins {
 
 dependencies {
     implementation(libs.okhttp)
-    implementation(libs.rxjava)
-    implementation(libs.rxandroid)
-    implementation(libs.jsoup)
     implementation(libs.injekt)
+    implementation(libs.kotlinx.serialization.json)
 }
 
+kotlin {
+    @OptIn(ExperimentalAbiValidation::class)
+    abiValidation {}
+}
+
+@Suppress("DEPRECATION")
 android {
     namespace = "eu.kanade.tachiyomi.extensions"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
-        minSdk = 21
+        minSdk = 26
     }
 }
 
@@ -37,11 +44,10 @@ spotless {
 
 tapmoc {
     java(17)
-    kotlin("2.3.10")
 }
 
 mavenPublishing {
-    coordinates("com.github.keiyoushi", "extensions-lib", "1.4.5")
+    coordinates("com.github.keiyoushi", "extensions-lib", "1.6")
 
     pom {
         name.set("extensions-lib")
@@ -67,3 +73,4 @@ mavenPublishing {
         }
     }
 }
+

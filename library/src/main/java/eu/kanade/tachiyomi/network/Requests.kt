@@ -1,3 +1,5 @@
+@file:Suppress("Unused", "FunctionName")
+
 package eu.kanade.tachiyomi.network
 
 import okhttp3.CacheControl
@@ -10,27 +12,24 @@ private val DEFAULT_CACHE_CONTROL: CacheControl = throw Exception("Stub!")
 private val DEFAULT_HEADERS: Headers = throw Exception("Stub!")
 private val DEFAULT_BODY: RequestBody = throw Exception("Stub!")
 
-fun GET(url: String,
-        headers: Headers = DEFAULT_HEADERS,
-        cache: CacheControl = DEFAULT_CACHE_CONTROL): Request {
-
-    throw Exception("Stub!")
-}
+fun GET(
+    url: String,
+    headers: Headers = DEFAULT_HEADERS,
+    cache: CacheControl = DEFAULT_CACHE_CONTROL,
+): Request = throw Exception("Stub!")
 
 /**
- * @since extensions-lib 1.4
+ * @since tachiyomix 1.4
  */
-fun GET(url: HttpUrl,
-        headers: Headers = DEFAULT_HEADERS,
-        cache: CacheControl = DEFAULT_CACHE_CONTROL): Request {
+fun GET(
+    url: HttpUrl,
+    headers: Headers = DEFAULT_HEADERS,
+    cache: CacheControl = DEFAULT_CACHE_CONTROL,
+): Request = throw Exception("Stub!")
 
-    throw Exception("Stub!")
-}
-
-fun POST(url: String,
-         headers: Headers = DEFAULT_HEADERS,
-         body: RequestBody = DEFAULT_BODY,
-         cache: CacheControl = DEFAULT_CACHE_CONTROL): Request {
-
-    throw Exception("Stub!")
-}
+fun POST(
+    url: String,
+    headers: Headers = DEFAULT_HEADERS,
+    body: RequestBody = DEFAULT_BODY,
+    cache: CacheControl = DEFAULT_CACHE_CONTROL,
+): Request = throw Exception("Stub!")

@@ -1,6 +1,6 @@
 package eu.kanade.tachiyomi.source.model
 
-@Suppress("unused")
+@Suppress("Unused")
 sealed class Filter<T>(val name: String, var state: T) {
     open class Header(name: String) : Filter<Any>(name, 0)
     open class Separator(name: String = "") : Filter<Any>(name, 0)
@@ -18,11 +18,9 @@ sealed class Filter<T>(val name: String, var state: T) {
             const val STATE_EXCLUDE = 2
         }
     }
-    abstract class Group<V>(name: String, state: List<V>): Filter<List<V>>(name, state)
+    abstract class Group<V>(name: String, state: List<V>) : Filter<List<V>>(name, state)
 
-    abstract class Sort(name: String, val values: Array<String>, state: Selection? = null)
-        : Filter<Sort.Selection?>(name, state) {
+    abstract class Sort(name: String, val values: Array<String>, state: Selection? = null) : Filter<Sort.Selection?>(name, state) {
         data class Selection(val index: Int, val ascending: Boolean)
     }
-
 }
