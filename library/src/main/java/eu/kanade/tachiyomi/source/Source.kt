@@ -91,4 +91,22 @@ interface Source {
      * @return the pages for the chapter.
      */
     suspend fun getPageList(chapter: SChapter): List<Page>
+
+    // GBK -->
+
+    /**
+     * Resolves a URL to an [SManga] that this source can handle.
+     *
+     * Override this method to support importing manga from URLs (e.g. batch add).
+     * Return an [SManga] with at least [SManga.url] set, or null if the URL
+     * is not recognized.
+     *
+     * Default implementation returns null (not supported).
+     *
+     * @since goblock/extensions-lib 1.0
+     * @param url the URL to resolve.
+     * @return the resolved manga, or null.
+     */
+    suspend fun getMangaFromUrl(url: String): SManga? = null
+    // GBK <--
 }

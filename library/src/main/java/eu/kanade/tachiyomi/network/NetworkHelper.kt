@@ -8,4 +8,3 @@ class NetworkHelper(context: Context) {
 
     val client: OkHttpClient = throw Exception("Stub!")
 }
-

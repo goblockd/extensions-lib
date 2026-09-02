@@ -41,4 +41,3 @@ interface CatalogueSource : Source {
      */
     suspend fun fetchRelatedMangaList(manga: SManga): List<SManga> = throw UnsupportedOperationException("Unsupported!")
 }
-
